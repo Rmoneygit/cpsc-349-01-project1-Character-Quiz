@@ -7,3 +7,13 @@ form {
     border: 1px solid #CCC;
     border-radius: 1em;
 }
+
+section:nth-of-type(1) {
+    margin-left: 10%;
+    /* float: right; */
+}
+
+section:nth-of-type(2) {
+    margin-right: 10%;
+    /* float: left; */
+}
