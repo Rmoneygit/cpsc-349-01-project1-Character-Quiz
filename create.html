@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
     <header>
         <h1>Quiz Creator</h1>
@@ -19,7 +21,8 @@
                 <form data-coffee-order="form">
                     <div class="form-group">
                         <label for="coffeeOrder">Quiz Title</label>
-                        <input class="form-control" name="coffee" id="coffeeOrder" autofocus required pattern="[a-zA-Z\s]+">
+                        <input class="form-control" name="coffee" id="coffeeOrder" autofocus required
+                            pattern="[a-zA-Z\s]+">
                     </div>
                     <div class="form-group">
                         <label for="emailInput">Result 1</label>
@@ -28,8 +31,8 @@
                     </div>
                     <div class="form-group">
                         <label for="emailInput">Result 2</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput"
-                            placeholder="Fries" required>
+                        <input class="form-control" type="email" name="emailAddress" id="emailInput" placeholder="Fries"
+                            required>
                     </div>
                     <div class="form-group">
                         <label for="emailInput">Result 3</label>
@@ -38,8 +41,8 @@
                     </div>
                     <div class="form-group">
                         <label for="emailInput">Result 4</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput"
-                            placeholder="Pizza" required>
+                        <input class="form-control" type="email" name="emailAddress" id="emailInput" placeholder="Pizza"
+                            required>
                     </div>
 
                     <button type="submit" class="btn btn-outline-primary">Submit</button>
@@ -49,5 +52,8 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+    <script src="scripts/firebase.js" charset="utf-8"></script>
+
 </body>
+
 </html>
