@@ -1,7 +1,15 @@
-function addCategory() {
-    $('#add-category').after("<p>Test</p>");
-}
-// $('#add-category').addEventListener("click", addCategory);
+document.getElementById('add-category').addEventListener("click", function (event) {
+    event.preventDefault();
+    $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type ="category"></div>`);
+});
+document.getElementById('delete-category').addEventListener("click", function (event) {
+    event.preventDefault();
+    if ($('#category .panel .panel-body .form-group').length == 1) {
+        return;
+    }
+    $('#category .panel .panel-body .form-group').last().remove();
+});
+
 (function (window) {
     'use strict';
     var FORM_SELECTOR = '[data-coffee-order="form"]';

@@ -50,28 +50,28 @@
             </div>
         </div>
     </section>
-    <section class="col-md-5 col-md-offset-8 float-right">
+    <section class="col-md-5 col-md-offset-8 float-right" id='category'>
         <div class="panel panel-default">
             <div class="panel-body">
-                <form data-coffee-order="form">
+                <form class>
+                    <label for="coffeeOrder">Category</label>
                     <div class="form-group">
-                        <label for="coffeeOrder">Category</label>
-                        <input class="form-control" name="coffee" id="coffeeOrder" autofocus required
-                            pattern="[a-zA-Z\s]+">
+                        <input class="form-control" type="category">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="category" required>
+                        <input class="form-control" type="category">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="category" required>
+                        <input class="form-control" type="category">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="category" required>
+                        <input class="form-control" type="category">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" type="category" required>
+                        <input class="form-control" type="category">
                     </div>
-                    <button type="add" class="btn btn-outline-primary" id='add-category'>Add Category</button>
+                    <button class="btn btn-outline-primary" id='add-category'>Add Category</button>
+                    <button class="btn btn-outline-primary" id='delete-category'>Delete Category</button>
                 </form>
             </div>
         </div>
