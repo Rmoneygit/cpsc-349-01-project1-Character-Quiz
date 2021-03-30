@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to Firebase Hosting</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/8.3.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/8.3.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-functions.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-storage.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-analytics.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-remote-config.js"></script>
+  <script defer src="/__/firebase/8.3.1/firebase-performance.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+  </head>
+
+<body>
+  <header>
+    <h1>Quiz Creator</h1>
+  </header>
+
+  <section class="float-left">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form data-coffee-order="form">
+          <div class="form-group">
+            <label for="quizTitle">Quiz Title</label>
+            <input class="form-control" id="quizTitle" autofocus required>
+          </div>
+          <div class="form-group">
+            <label for="resultInput">Result 1</label>
+            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Cheeseburger"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="resultInput">Result 2</label>
+            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Fries" required>
+          </div>
+          <div class="form-group">
+            <label for="resultInput">Result 3</label>
+            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Pickles" required>
+          </div>
+          <div class="form-group">
+            <label for="resultInput">Result 4</label>
+            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Pizza" required>
+          </div>
+          <button type="submit" class="btn btn-outline-primary">Submit</button>
+          <button type="reset" class="btn btn-outline-secondary">Reset</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="col-md-5 col-md-offset-8 float-right" id='category'>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <form class>
+          <label for="coffeeOrder">Category</label>
+          <div class="form-group">
+            <input class="form-control" type="category">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="category">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="category">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="category">
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="category">
+          </div>
+          <button class="btn btn-outline-primary" id='add-category'>Add Category</button>
+          <button class="btn btn-outline-primary" id='delete-category'>Delete Category</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  <script src="scripts/firebase.js" charset="utf-8"></script>
+  <script src="scripts/formhandler.js" charset="utf-8"></script>
+  <script src="scripts/main.js" charset="utf-8"></script>
+</body>
+
+</html>
+</body>
+
+</html>
