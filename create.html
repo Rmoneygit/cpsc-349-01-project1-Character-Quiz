@@ -20,29 +20,28 @@
             <div class="panel-body">
                 <form data-coffee-order="form">
                     <div class="form-group">
-                        <label for="coffeeOrder">Quiz Title</label>
-                        <input class="form-control" name="coffee" id="coffeeOrder" autofocus required
-                            pattern="[a-zA-Z\s]+">
+                        <label for="quizTitle">Quiz Title</label>
+                        <input class="form-control" name="quiz" id="quizTitle" autofocus required>
                     </div>
                     <div class="form-group">
-                        <label for="emailInput">Result 1</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput"
+                        <label for="resultInput">Result 1</label>
+                        <input class="form-control" type="result" name="result" id="resultInput"
                             placeholder="Cheeseburger" required>
                     </div>
                     <div class="form-group">
-                        <label for="emailInput">Result 2</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput" placeholder="Fries"
-                            required>
+                        <label for="resultInput">Result 2</label>
+                        <input class="form-control" type="result" name="result" id="resultInput"
+                            placeholder="Fries" required>
                     </div>
                     <div class="form-group">
-                        <label for="emailInput">Result 3</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput"
+                        <label for="resultInput">Result 3</label>
+                        <input class="form-control" type="result" name="result" id="resultInput"
                             placeholder="Pickles" required>
                     </div>
                     <div class="form-group">
-                        <label for="emailInput">Result 4</label>
-                        <input class="form-control" type="email" name="emailAddress" id="emailInput" placeholder="Pizza"
-                            required>
+                        <label for="resultInput">Result 4</label>
+                        <input class="form-control" type="result" name="result" id="resultInput"
+                            placeholder="Pizza" required>
                     </div>
 
                     <button type="submit" class="btn btn-outline-primary">Submit</button>
@@ -53,6 +52,7 @@
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="scripts/firebase.js" charset="utf-8"></script>
+    <script src="scripts/formhandler.js" charset="utf-8"></script>
 
 </body>
 
