@@ -50,24 +50,23 @@ class Quiz {
         this.pointList = pointList;
     }
 }
-function test() {
-    let qnaList = []
-    let pointList = []
+let qnaList = []
+let pointList = []
 
-    //create category point system
-    let p1 = new Point('hobo', 3);
-    let p2 = new Point('rich', 6);
-    let p3 = new Point('omega rich', 15);
-    pointList.push(p1)
-    pointList.push(p2)
-    pointList.push(p3)
+//create category point system
+let p1 = new Point('hobo', 3);
+let p2 = new Point('rich', 6);
+let p3 = new Point('omega rich', 15);
+pointList.push(p1)
+pointList.push(p2)
+pointList.push(p3)
 
-    let answer1 = [{ q: 'ok', 'hobo': 2 }, { q: 'im ok', 'rich': 3 }, { q: 'gud', 'rich': 3, 'hobo': 2 }, { q: 'gud', 'rich': 3, 'hobo': 1 }];
-    let answer2 = [{ q: 'happppppyyyyy', 'omega rich': 15 }, { q: 'not happy', 'hobo': 100 }, { q: 'happy', 'rich': 13, 'hobo': 2 }, { q: 'maybe', 'rich': 3, 'hobo': 5 }];
-    let qna1 = new Qna('you happy?', answer1);
-    let qna2 = new Qna('you happy!????', answer2);
-    qnaList.push(qna1)
-    qnaList.push(qna2)
+let answer1 = [{ q: 'ok', 'hobo': 2 }, { q: 'im ok', 'rich': 3 }, { q: 'gud', 'rich': 3, 'hobo': 2 }, { q: 'gud', 'rich': 3, 'hobo': 1 }];
+let answer2 = [{ q: 'happppppyyyyy', 'omega rich': 15 }, { q: 'not happy', 'hobo': 100 }, { q: 'happy', 'rich': 13, 'hobo': 2 }, { q: 'maybe', 'rich': 3, 'hobo': 5 }];
+let qna1 = new Qna('you happy?', answer1);
+let qna2 = new Qna('you happy!????', answer2);
+qnaList.push(qna1)
+qnaList.push(qna2)
 
-    let q = new Quiz(qnaList);
-}
+let q = new Quiz(qnaList, pointList);
+console.log(q)
