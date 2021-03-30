@@ -19,9 +19,5 @@ document.getElementById('delete-category').addEventListener("click", function (e
     var formHandler = new FormHandler(FORM_SELECTOR);
 
     formHandler.addSubmitHandler(function () {
-        console.log('asdf')
     });
-
-    //formHandler.addInputHandler(Validation.isCompanyEmail);
-
 })(window);

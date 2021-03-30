@@ -14,16 +14,15 @@
 
     FormHandler.prototype.addSubmitHandler = function () {
         console.log('Setting submit handler for form');
-        var data = [];
         this.$formElement.on('submit', function (event) {
+            var data = {};
             event.preventDefault();
-            console.log(event);
             $(this).serializeArray().forEach(function (item) {
                 data[item.name] = item.value;
                 console.log(item.name + ' is ' + item.value);
             });
+            console.log(data);
         });
-        console.log(data);
         // to do save data some where
     };
 
