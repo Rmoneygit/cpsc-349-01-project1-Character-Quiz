@@ -18,6 +18,7 @@
   <script defer src="/__/firebase/8.3.1/firebase-analytics.js"></script>
   <script defer src="/__/firebase/8.3.1/firebase-remote-config.js"></script>
   <script defer src="/__/firebase/8.3.1/firebase-performance.js"></script>
+
   <!-- 
       initialize the SDK after all desired features are loaded, set useEmulator to false
       to avoid connecting the SDK to running emulators.
@@ -32,12 +33,15 @@
     <title>Create Quiz</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous" />
     <link rel="stylesheet" href="stylesheets/styles.css">
   </head>
 
 <body>
   <header>
-    <h1>Quiz Creator</h1>
+    <h1 class="text-justify">Quiz Creator</h1>
   </header>
 
   <section class="float-left" id='qna'>
@@ -48,28 +52,59 @@
             <label for="quizTitle">Quiz Title</label>
             <input class="form-control" id="quizTitle" autofocus>
           </div>
+          <hr class="mt-2 mb-3" />
           <div class="question" data-question="1">
             <div class="form-group">
               <label for="resultInput">Question 1</label>
               <input class="form-control" type="question" name="question">
             </div>
             <div class="form-group">
-              <label for="resultInput">Answers</label>
-              <input class="form-control" type="1" name="1" data-answer="1">
+              <label>Answers</label>
+              <div class="input-group">
+                <input class="form-control answer" type="1" name="1" data-answer="1">
+                <div class="dropdown">
+                  <button class="btn cog" data-toggle="dropdown">
+                    <i class="fas fa-cogs"></i></a>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item disabled">Action</a>
+                    <input type="number" value="0" min="0" step="1" />
+                    <a class="dropdown-item disabled">Another action</a>
+                    <input type="number" value="0" min="0" step="1" />
+                    <a class="dropdown-item disabled">Something else here</a>
+                    <input type="number" value="0" min="0" step="1" />
+                  </div>
+                </div>
+                <a class="btn btn-small remove" href="">
+                  <i class="fas fa-minus-circle"></i></a>
+              </div>
             </div>
             <div class="form-group">
-              <input class="form-control" type="2" name="2" data-answer="2">
+              <div class="input-group">
+                <input class="form-control answer" type="2" name="2" data-answer="2">
+                <a class="btn btn-small cog" href="">
+                  <i class="fas fa-cogs"></i></a>
+                <a class="btn btn-small remove" href="">
+                  <i class="fas fa-minus-circle"></i></a>
+              </div>
             </div>
             <div class="form-group">
-              <input class="form-control" type="3" name="3" data-answer="3">
+              <div class="input-group">
+                <input class="form-control answer" type="3" name="3" data-answer="3">
+                <a class="btn btn-small cog" href="">
+                  <i class="fas fa-cogs"></i></a>
+                <a class="btn btn-small remove" href="">
+                  <i class="fas fa-minus-circle"></i></a>
+              </div>
             </div>
             <button class="btn btn-outline-primary add-answer">Add Answer</button>
             <hr class="mt-2 mb-3" />
           </div>
           <button id="add-question" class="btn btn-outline-secondary">Add Question</button>
           <button id="submit" class="btn btn-outline-primary float-right">Submit</button>
-        </form>
       </div>
+      </form>
+    </div>
     </div>
   </section>
   <section class="col-md-5 col-md-offset-8 float-right" id='category'>
@@ -93,6 +128,13 @@
     </div>
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="scripts/input-spinner.js"></script>
   <script src="scripts/firebase.js" charset="utf-8"></script>
   <script src="scripts/formhandler.js" charset="utf-8"></script>
   <script src="scripts/main.js" charset="utf-8"></script>

@@ -9,22 +9,6 @@ document.getElementById('delete-category').addEventListener("click", function (e
     }
     $('#category .panel .panel-body .form-group').last().remove();
 });
-function addAsnwerListener() {
-    // let addbtn = document.getElementsByClassName('add-answer');
-    let addbtn = document.querySelectorAll(".add-answer")
-    console.log(addbtn.length)
-    addbtn.forEach(btn => {
-        btn.addEventListener("click", function (event) {
-            event.preventDefault();
-            let parent = $(event.target).parents('.question');
-            let last = parent.find('.form-group').last();
-            let answerVal = last.find('input').data('answer');
-            answerVal = parseInt(answerVal, 10) + 1;
-            last.after(`<div class="form-group"><input class="form-control" type="${answerVal}" name="${answerVal}" data-answer="${answerVal}"></div>`);
-        });
-    });
-}
-addAsnwerListener();
 document.getElementById('add-question').addEventListener("click", function (event) {
     event.preventDefault();
     let q = $(".question").last();
@@ -40,25 +24,47 @@ document.getElementById('add-question').addEventListener("click", function (even
     </div>
     <div class="form-group">
     <label for="resultInput">Answers</label>
-    <input class="form-control" type="1" name="1" data-answer="1">
+    <div class="input-group">
+    <input class="form-control answer" type="1" name="1" data-answer="1">
+    <a class="btn btn-small cog" href="">
+    <i class="fas fa-cogs"></i></a>
+    <a class="btn btn-small remove" href="">
+    <i class="fas fa-minus-circle"></i></a>
+    </div>
     </div>
     <button class="btn btn-outline-primary add-answer">Add Answer</button>
     <hr class="mt-2 mb-3" />
     </div>`
     $('#add-question').before(str);
-    addAsnwerListener();
+    // addAsnwerListener();
 });
 function reset() {
 
 }
-// (function (window) {
-//     'use strict';
-//     var FORM_SELECTOR = '[data-coffee-order="form"]';
-//     var App = window.App;
-
-//     var FormHandler = App.FormHandler;
-//     var formHandler = new FormHandler(FORM_SELECTOR);
-
-//     formHandler.addSubmitHandler(function () {
-//     });
-// })(window);
+$(document).on('click', '.cog', function (event) {
+    event.preventDefault();
+});
+$(document).on('click', '.remove', function (event) {
+    event.preventDefault();
+    let parent = $(event.target).parents('.question');
+    if (parent.find('.form-group').length <= 2) {
+        return;
+    }
+    event.currentTarget.parentNode.parentNode.remove();
+});
+$(document).on('click', '.add-answer', function (event) {
+    event.preventDefault();
+    let parent = $(event.target).parents('.question');
+    let last = parent.find('.form-group').last();
+    let answerVal = last.find('input').data('answer');
+    answerVal = parseInt(answerVal, 10) + 1;
+    last.after(`<div class="form-group"><div class="input-group"><input class="form-control answer" type="${answerVal}" name="${answerVal}" data-answer="${answerVal}"><a class="btn btn-small cog" href="">
+        <i class="fas fa-cogs"></i></a><a class="btn btn-small remove" href=""><i class="fas fa-minus-circle"></i></a></div></div>`);
+});
+$("input[type='number']").inputSpinner()
+$('.dropdown-menu').click(function (e) {
+    e.stopPropagation();
+});
+$('.dropdown-item').click(function (e) {
+    e.preventDefault();
+});
