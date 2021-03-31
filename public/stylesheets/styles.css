@@ -34,3 +34,8 @@ section:nth-of-type(2) {
     border: 1px solid silver;
     background-color: rgb(255, 92, 92);
 }
+
+.dropdown {
+    margin-left: 1%;
+
+}
