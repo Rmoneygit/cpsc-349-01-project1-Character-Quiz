@@ -40,33 +40,34 @@
     <h1>Quiz Creator</h1>
   </header>
 
-  <section class="float-left">
+  <section class="float-left" id='qna'>
     <div class="panel panel-default">
       <div class="panel-body">
         <form data-coffee-order="form">
           <div class="form-group">
             <label for="quizTitle">Quiz Title</label>
-            <input class="form-control" id="quizTitle" autofocus required>
+            <input class="form-control" id="quizTitle" autofocus>
           </div>
-          <div class="form-group">
-            <label for="resultInput">Result 1</label>
-            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Cheeseburger"
-              required>
+          <div class="question" data-question="1">
+            <div class="form-group">
+              <label for="resultInput">Question 1</label>
+              <input class="form-control" type="question" name="question">
+            </div>
+            <div class="form-group">
+              <label for="resultInput">Answers</label>
+              <input class="form-control" type="1" name="1" data-answer="1">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="2" name="2" data-answer="2">
+            </div>
+            <div class="form-group">
+              <input class="form-control" type="3" name="3" data-answer="3">
+            </div>
+            <button class="btn btn-outline-primary add-answer">Add Answer</button>
+            <hr class="mt-2 mb-3" />
           </div>
-          <div class="form-group">
-            <label for="resultInput">Result 2</label>
-            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Fries" required>
-          </div>
-          <div class="form-group">
-            <label for="resultInput">Result 3</label>
-            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Pickles" required>
-          </div>
-          <div class="form-group">
-            <label for="resultInput">Result 4</label>
-            <input class="form-control" type="result" name="result" id="resultInput" placeholder="Pizza" required>
-          </div>
-          <button type="submit" class="btn btn-outline-primary">Submit</button>
-          <button type="reset" class="btn btn-outline-secondary">Reset</button>
+          <button id="add-question" class="btn btn-outline-secondary">Add Question</button>
+          <button id="submit" class="btn btn-outline-primary float-right">Submit</button>
         </form>
       </div>
     </div>
@@ -76,12 +77,6 @@
       <div class="panel-body">
         <form class>
           <label for="coffeeOrder">Category</label>
-          <div class="form-group">
-            <input class="form-control" type="category">
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="category">
-          </div>
           <div class="form-group">
             <input class="form-control" type="category">
           </div>
