@@ -1,3 +1,9 @@
+$(document).on('click', '#submit', function (event) {
+    event.preventDefault();
+    // TODO
+    // get title, Q, and A from the input fields and make it into a pure js obj (wont work if its not pure js, see firebase.js for example)
+    // and call savequiz().
+});
 document.getElementById('add-category').addEventListener("click", function (event) {
     event.preventDefault();
     $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type ="category"></div>`);
@@ -22,8 +28,8 @@ document.getElementById('add-question').addEventListener("click", function (even
     <label for="resultInput">Question ${questionVal}</label>
     <input class="form-control" type="question" name="question">
     </div>
-    <div class="form-group">
     <label for="resultInput">Answers</label>
+    <div class="form-group">
     <div class="input-group">
     <input class="form-control answer" type="1" name="1" data-answer="1">
     <a class="btn btn-small cog" href="">
@@ -41,6 +47,7 @@ document.getElementById('add-question').addEventListener("click", function (even
 function reset() {
 
 }
+
 $(document).on('click', '.cog', function (event) {
     event.preventDefault();
 });
