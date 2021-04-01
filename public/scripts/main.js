@@ -50,6 +50,9 @@ function reset() {
 
 $(document).on('click', '.cog', function (event) {
     event.preventDefault();
+    // TODO
+    // show data from catageory
+    // currently shwoing dummy data
 });
 $(document).on('click', '.remove', function (event) {
     event.preventDefault();
