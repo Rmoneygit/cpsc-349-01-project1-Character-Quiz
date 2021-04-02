@@ -7,7 +7,8 @@ $(document).on('click', '#submit', function (event) {
 
 document.getElementById('add-category').addEventListener("click", function (event) {
     event.preventDefault();
-    $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type ="category"></div>`);
+    let cats = $("#category-types").find("input");
+    $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type="category-${cats.length + 1}" value="My Category ${cats.length + 1}"></div>`);
 });
 document.getElementById('delete-category').addEventListener("click", function (event) {
     event.preventDefault();
@@ -51,9 +52,30 @@ function reset() {
 
 $(document).on('click', '.cog', function (event) {
     event.preventDefault();
-    // TODO
-    // show data from catageory
-    // currently shwoing dummy data
+    let htmlStr = ``;
+    let cats = $("#category-types").find("input");
+
+    let parent = $(event.target).parents(".input-group");
+    let form_ctrl = parent.find(".form-control.answer");
+    let drop_menu = parent.find(".dropdown-menu");
+    form_ctrl.attr('type', cats.length);
+    form_ctrl.attr('name', cats.length);
+    form_ctrl.attr('data-answer', cats.length);
+    let inputEls = drop_menu.find("input");
+    let pointVals = [];
+    var i;
+    for (i = 0; i < cats.length; i++) {
+        pointVals.push(0);
+    }
+    for(i = 0; i < inputEls.length; i++) {
+        pointVals.push($(inputEls[i]).val());
+    }
+
+    cats.each(function(i) {
+        htmlStr += `<a class="dropdown-item disabled">${$(this).val()}</a><input type="number" value="${pointVals[i]}" min="0" step="1" />`
+    });
+
+    drop_menu.html(htmlStr);
 });
 $(document).on('click', '.remove', function (event) {
     event.preventDefault();
