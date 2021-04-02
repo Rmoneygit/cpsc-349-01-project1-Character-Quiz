@@ -1,0 +1,136 @@
+section {
+    /* width: 200px;
+    height: 200px; */
+    /* position: fixed; */
+    /* top: 10%;
+    left: 50%; */
+    /* margin-top: -100px;
+    margin-left: -100px; */
+    margin-left: 30%;
+    width: 40%;
+}
+
+h1 {
+    text-align: center;
+    align-content: center;
+}
+
+form {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 500px;
+    /* Form outline */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+.mdl-card {
+    min-height: 0;
+}
+
+.mdl-card {
+    background: linear-gradient(white, #f9f9f9);
+    justify-content: space-between;
+}
+
+header {
+    background-color: cadetblue;
+    /* position: absolute; */
+    top: 22px;
+    /* width: 100%; */
+    right: 0;
+}
+
+header {
+    background-color: cadetblue;
+    /* position: absolute; */
+    top: 22px;
+    /* width: 100%; */
+    right: 0;
+}
+
+.mdl-card {
+    min-height: 0;
+}
+
+.mdl-card {
+    background: linear-gradient(white, #f9f9f9);
+    justify-content: space-between;
+}
+
+
+#user-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    max-width: 50%;
+    flex-direction: row;
+    right: 0;
+    padding-left: 10px;
+    /* justify-content: flex-end; */
+    padding-right: 10px;
+}
+
+#user-container #user-pic {
+    top: -3px;
+    position: relative;
+    display: inline-block;
+    background-image: url('/images/profile_placeholder.png');
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    background-size: 40px;
+    border-radius: 20px;
+}
+
+#user-container #user-name {
+    font-size: 16px;
+    line-height: 36px;
+    padding-right: 10px;
+    padding-left: 20px;
+}
+
+#image-form #submitImage {
+    width: auto;
+    padding: 0 6px 0 1px;
+    min-width: 0;
+}
+
+#image-form #submitImage .material-icons {
+    top: -1px;
+}
+
+#search {
+    margin-left: 1%;
+    border: 1px solid silver;
+    background-color: rgb(240, 240, 240);
+}
+
+.search-result {
+    /* width: 100%; */
+    min-width: 100%;
+    /* border-radius: 3%; */
+    padding: 1em;
+    border: 10px solid #CCC;
+    border-radius: 1em;
+}
+
+.title {
+    width: 70%;
+    min-height: 100%;
+    text-align: left;
+    /* border-left: cadetblue solid 3px;
+    margin-left: 3px; */
+    margin-bottom: none !important;
+}
+
+.author {
+    width: 25%;
+    text-align: left;
+    margin: none;
+    /* border-left: cadetblue solid 3px;
+    margin-left: 3px; */
+    margin-bottom: none !important;
+
+}

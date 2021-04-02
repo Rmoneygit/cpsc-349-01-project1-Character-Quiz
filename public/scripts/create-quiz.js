@@ -56,10 +56,11 @@
 let qna1 = [{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
 let catList = ['hobo', 'rich', 'omega rich']
 
-function saveQuiz(qna, category) {
+function saveQuiz(title, qna, category) {
     // Add a new message entry to the database.
     return firebase.firestore().collection('quiz').add({
-        // name: getUserName(),
+        title: title,
+        // author: getUserName(),
         qna: qna,
         category: category,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
@@ -67,7 +68,7 @@ function saveQuiz(qna, category) {
         console.error('Error writing new message to database', error);
     });
 }
-// saveQuiz(qna1, catList);
+// saveQuiz("Darryn's fav", qna1, catList);
 
 
 
