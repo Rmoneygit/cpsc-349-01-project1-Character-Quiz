@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,9 +23,14 @@
     href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
 
   <link rel="stylesheet" href="stylesheets/index.css">
-</head>
+  <link rel="stylesheet" href="stylesheets/loading.css">
 
-<body>
+</head>
+<div id='preload' class="spinner-grow mw-100 p-3 position-fixed center translate-middle" role="status"
+  style="visibility: visible;">
+</div>
+
+<body id='body' style="visibility: hidden;">
   <header>
     <h1>Quizzzy
       <div id="user-container" class="float-right">
@@ -49,33 +56,11 @@
           <hr class="mt-2 mb-3" />
           <a id="create-quiz" href="create.html" class="btn btn-outline-primary" role="button">Create Quiz</a>
           <a id="take-quiz" href="search.html" class="btn btn-outline-primary float-right" role="button">Take a Quiz</a>
-
-          <!-- <button id="take-quiz" class="btn btn-outline-primary float-right">Take Quiz</button> -->
       </div>
       </form>
     </div>
     </div>
   </section>
-  <!-- <section class="col-md-5 col-md-offset-8 float-right" id='category'>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form class>
-          <label for="coffeeOrder">Category</label>
-          <div class="form-group">
-            <input class="form-control" type="category">
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="category">
-          </div>
-          <div class="form-group">
-            <input class="form-control" type="category">
-          </div>
-          <button class="btn btn-outline-primary" id='add-category'>Add Category</button>
-          <button class="btn btn-outline-primary" id='delete-category'>Delete Category</button>
-        </form>
-      </div>
-    </div>
-  </section> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
@@ -83,14 +68,14 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-
+  <script src="scripts/loading.js" charset="utf-8"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
   <script src="scripts/input-spinner.js"></script>
   <script src="scripts/firebase.js" charset="utf-8"></script>
   <script src="scripts/formhandler.js" charset="utf-8"></script>
-  <script src="scripts/main.js" charset="utf-8"></script>
+  <!-- <script src="scripts/main.js" charset="utf-8"></script> -->
   <script src="scripts/index.js" charset="utf-8"></script>
 
 </body>

@@ -26,8 +26,11 @@
 
 
 </head>
+<div id='preload' class="spinner-grow mw-100 p-3 position-fixed center translate-middle" role="status"
+    style="visibility: visible;">
+</div>
 
-<body>
+<body id='body' style="visibility: hidden;">
     <header>
         <h1>Quiz Creator
             <div id="user-container" class="float-right">
@@ -80,6 +83,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
 
+    <script src="scripts/loading.js" charset="utf-8"></script>
     <script src="scripts/input-spinner.js"></script>
     <script src="scripts/firebase.js" charset="utf-8"></script>
     <script src="scripts/create-quiz.js"></script>

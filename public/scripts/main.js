@@ -4,6 +4,7 @@ $(document).on('click', '#submit', function (event) {
     // get title, Q, and A from the input fields and make it into a pure js obj (wont work if its not pure js, see firebase.js for example)
     // and call savequiz().
 });
+
 document.getElementById('add-category').addEventListener("click", function (event) {
     event.preventDefault();
     $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type ="category"></div>`);

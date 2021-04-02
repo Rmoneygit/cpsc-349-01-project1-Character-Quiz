@@ -1,0 +1,10 @@
+.center {
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 10rem;
+    height: 10rem;
+    /* -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%); */
+    /* transform: translateX(-50%) translateY(-50%); */
+}
