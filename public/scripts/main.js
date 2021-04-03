@@ -16,11 +16,18 @@ $(document).on('click', '#submit', function (event) {
     for (j = 0; j < cats.length; j++) {
         catVals.push($(cats[j]).val());
     }
-    var flag = true;
+
     var weight = 0;
 
     // FSM to "parse" correct format
     //{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
+    console.log(qP.length);
+    var ina;
+    let tempQP = [];
+    for(ina = 0; ina < qP.length; ina++) {
+        tempQP.push($(qP[ina]).val());
+    }
+    console.log(tempQP);
     while(i < qP.length) {
         // if the string passed in is ONLY a number, true. 'q1' is treated as a string.
         let isnum = /^\d+$/.test($(qP[i]).val());
