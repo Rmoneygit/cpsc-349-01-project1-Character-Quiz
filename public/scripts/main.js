@@ -65,7 +65,7 @@ document.getElementById('add-category').addEventListener("click", function (even
     event.preventDefault();
     let cats = $("#category-types").find("input");
     $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type="category-${cats.length + 1}" value="My Category ${cats.length + 1}"></div>`);
-    updateAllCogs(event);
+    updateAllCogs();
 });
 document.getElementById('delete-category').addEventListener("click", function (event) {
     event.preventDefault();
@@ -73,7 +73,7 @@ document.getElementById('delete-category').addEventListener("click", function (e
         return;
     }
     $('#category .panel .panel-body .form-group').last().remove();
-    updateAllCogs(event);
+    updateAllCogs();
 });
 document.getElementById('add-question').addEventListener("click", function (event) {
     event.preventDefault();
@@ -92,7 +92,7 @@ document.getElementById('add-question').addEventListener("click", function (even
     <div class="form-group">
     <div class="input-group">
     <input class="form-control answer" type="1" name="1" data-answer="1">
-    <a class="btn btn-small cog" href="">
+    <a class="btn cog" href="">
     <i class="fas fa-cogs"></i></a>
     <a class="btn btn-small remove" href="">
     <i class="fas fa-minus-circle"></i></a>
@@ -109,13 +109,13 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-function updateAllCogs(event) {
-    event.preventDefault();
+function updateAllCogs() {
     let cogs = $(".btn.cog");
     cogs.each(function() {
         generateCogCat($(this));
     });
 }
+updateAllCogs();
 function generateCogCat(cog) {
     console.log('cog')
     let htmlStr = ``;
