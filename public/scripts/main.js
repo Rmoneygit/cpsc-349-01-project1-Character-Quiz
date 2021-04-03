@@ -3,6 +3,30 @@ $(document).on('click', '#submit', function (event) {
     // TODO
     // get title, Q, and A from the input fields and make it into a pure js obj (wont work if its not pure js, see firebase.js for example)
     // and call savequiz().
+    let qna = $("#questions-and-answers").find("input");
+    let qP = $("#question-prompt").find("input");
+    let cats = $("#category-types").find("input");
+
+    let qnaVals = [];
+    let catVals = [];
+    //let qna1 = [{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
+
+
+    var i;
+    var j;
+    console.log(cats.length);
+    for(j = 0; j < cats.length; j++) {
+        catVals.push($(cats[j]).val());
+    }
+
+    for(i = 0; i < qna.length; i++) {
+        qnaVals.push($(qna[i]).val());
+    }
+    for(i = 1; i < qP.length; i++) {
+        qnaVals.push({ q: $(qP[i]).val()});
+    }
+
+    saveQuiz($(qna[0]).val(), qnaVals, catVals);
 });
 
 document.getElementById('add-category').addEventListener("click", function (event) {

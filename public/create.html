@@ -22,11 +22,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
-<div id='preload' class="spinner-grow mw-100 p-3 position-fixed center translate-middle" role="status"
-    style="visibility: visible;">
-</div>
-
-<body id='body' style="visibility: hidden;">
+<body id='body'>
     <header>
         <h1>Quiz Creator
             <div id="user-container" class="float-right">
@@ -46,31 +42,35 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <form data-coffee-order="form">
-                    <div class="form-group">
-                        <label for="quizTitle">Quiz Title</label>
-                        <input class="form-control" id="quizTitle" autofocus>
+                    <div id = "questions-and-answers">
+                        <div class="form-group">
+                            <label for="quizTitle">Quiz Title</label>
+                            <input class="form-control" id="quizTitle" autofocus>
+                        </div>
                     </div>
                     <hr class="mt-2 mb-3" />
-                    <div class="question" data-question="1">
+                    <div class="question" id = "question-prompt" data-question="1">
                         <div class="form-group">
                             <label for="resultInput">Question 1</label>
                             <input class="form-control" type="question" name="question">
                         </div>
                         <label>Answers</label>
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input class="form-control answer" type="1" name="1" data-answer="1">
-                                <div class="dropdown">
-                                    <button class="btn cog" data-toggle="dropdown">
-                                        <i class="fas fa-cogs"></i></a>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item disabled">My Category</a>
-                                        <input type="number" value="0" min="0" step="1" />
+                        <div id = "answer-prompt">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control answer" type="1" name="1" data-answer="1">
+                                    <div class="dropdown">
+                                        <button class="btn cog" data-toggle="dropdown">
+                                            <i class="fas fa-cogs"></i></a>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item disabled">My Category</a>
+                                            <input type="number" value="0" min="0" step="1" />
+                                        </div>
                                     </div>
+                                    <a class="btn btn-small remove" href="">
+                                        <i class="fas fa-minus-circle"></i></a>
                                 </div>
-                                <a class="btn btn-small remove" href="">
-                                    <i class="fas fa-minus-circle"></i></a>
                             </div>
                         </div>
                         <div class="form-group">
