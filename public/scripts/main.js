@@ -25,7 +25,6 @@ $(document).on('click', '#submit', function (event) {
     for (i = 1; i < qP.length; i++) {
         qnaVals.push({ q: $(qP[i]).val() });
     }
-
     saveQuiz($(qna[0]).val(), qnaVals, catVals);
 });
 
@@ -142,4 +141,7 @@ $('.dropdown-menu').click(function (e) {
 });
 $('.dropdown-item').click(function (e) {
     e.preventDefault();
+});
+$(document).on('click', '.cog', function (event) {
+    event.preventDefault();
 });
