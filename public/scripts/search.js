@@ -30,13 +30,15 @@ loadQuiz();
 function displayQuiz(doc) {
     let id = doc.id
     let data = doc.data()
-    let searchResultButton = `<button class="btn btn-secondary btn-block" class="search-result" type="button" data-id="${doc.id}">
+    let searchResultButton = `<a class="btn btn-secondary btn-block" class="search-result" type="button" href="quiz.html?id=${doc.id}">
 <label for="title" class="title float-left">${data.title}</label>
 <label for="author" class="author float-left">${data.author}</label>
 <i class="fas fa-sign-in-alt"></i></a>
-</button>`;
+</a>`;
     label.after(searchResultButton)
 }
 $(document).on('click', '#search-btn', function (event) {
-    // event.preventDefault();
+    event.preventDefault();
+    query = serachInput.val();
+    window.location.replace(`search.html?query=${query}`);
 });
