@@ -58,6 +58,7 @@ document.getElementById('add-category').addEventListener("click", function (even
     event.preventDefault();
     let cats = $("#category-types").find("input");
     $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type="category-${cats.length + 1}" value="My Category ${cats.length + 1}"></div>`);
+    updateAllCogs(event);
 });
 document.getElementById('delete-category').addEventListener("click", function (event) {
     event.preventDefault();
@@ -65,6 +66,7 @@ document.getElementById('delete-category').addEventListener("click", function (e
         return;
     }
     $('#category .panel .panel-body .form-group').last().remove();
+    updateAllCogs(event);
 });
 document.getElementById('add-question').addEventListener("click", function (event) {
     event.preventDefault();
@@ -100,12 +102,18 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-function generateCogCat(event) {
+function updateAllCogs(event) {
     event.preventDefault();
+    let cogs = $(".btn.cog");
+    cogs.each(function() {
+        generateCogCat($(this));
+    });
+}
+function generateCogCat(cog) {
     console.log('cog')
     let htmlStr = ``;
     let cats = $("#category-types").find("input");
-    let parent = $(event.target).parents(".input-group");
+    let parent = $(cog).parents(".input-group");
     let form_ctrl = parent.find(".form-control.answer");
     let drop_menu = parent.find(".dropdown-menu");
     form_ctrl.attr('type', cats.length);
@@ -118,14 +126,15 @@ function generateCogCat(event) {
         pointVals.push(0);
     }
     for (i = 0; i < inputEls.length; i++) {
-        pointVals.push($(inputEls[i]).val());
+        pointVals[i] = parseInt($(inputEls[i]).val());
     }
+    console.log(pointVals);
     cats.each(function (i) {
-        console.log(i)
         htmlStr += `<a class="dropdown-item">${$(this).val()}</a><input type="number" value="${pointVals[i]}" min="0" step="1" />`
     });
     drop_menu.html(htmlStr);
-    spinner();
+    spinner(drop_menu);
+    drop_menu.find("input[type='number']").remove();
 }
 $(document).on('click', '.remove', function (event) {
     event.preventDefault();
@@ -158,10 +167,9 @@ $(document).on('click', '.add-answer', function (event) {
     </div>
 </div>`);
 });
-function spinner() {
-    $("input[type='number']").inputSpinner();
+function spinner(parent) {
+    parent.find("input[type='number']").inputSpinner();
 }
-spinner();
 $('.dropdown-menu').click(function (e) {
     e.stopPropagation();
 });
