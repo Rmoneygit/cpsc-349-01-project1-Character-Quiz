@@ -26,40 +26,40 @@
   <link rel="stylesheet" href="stylesheets/loading.css">
 
 </head>
-<div id='preload' class="spinner-grow mw-100 p-3 position-fixed center translate-middle" role="status"
-  style="visibility: visible;">
-</div>
+<div class="text-center">
+  <div id='preload' class="spinner-grow mw-100 p-3 position-fixed center translate-middle" role="status"
+    style="visibility: visible;">
+    isibility: hidden;">
+    <header>
+      <h1>Quizzzy
+        <div id="user-container" class="float-right">
+          <div hidden id="user-pic"></div>
+          <div hidden id="user-name"></div>
+          <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+            Sign-out
+          </button>
+          <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+            <i class="material-icons">account_circle</i>Sign-in with Google
+          </button>
+        </div>
+      </h1>
+    </header>
+    <section>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <form data-coffee-order="form">
+            <h3>Welcome to quizzzy</h3>
+            <h4>{Description of how this proj works}</h4>
 
-<body id='body' style="visibility: hidden;">
-  <header>
-    <h1>Quizzzy
-      <div id="user-container" class="float-right">
-        <div hidden id="user-pic"></div>
-        <div hidden id="user-name"></div>
-        <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-          Sign-out
-        </button>
-        <button id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-          <i class="material-icons">account_circle</i>Sign-in with Google
-        </button>
+            <h6>This project is developed by team ChickAnd Sandwich by Darryn Wong, Michael Moon, and Ryan Patrick.</h6>
+            <hr class="mt-2 mb-3" />
+            <a id="create-quiz" href="create.html" class="btn btn-outline-primary" role="button">Create Quiz</a>
+            <a id="take-quiz" href="search.html" class="btn btn-outline-primary float-right" role="button">Take a
+              Quiz</a>
+        </div>
+        </form>
       </div>
-    </h1>
-  </header>
-  <section>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <form data-coffee-order="form">
-          <h3>Welcome to quizzzy</h3>
-          <h4>{Description of how this proj works}</h4>
-
-          <h6>This project is developed by team ChickAnd Sandwich by Darryn Wong, Michael Moon, and Ryan Patrick.</h6>
-          <hr class="mt-2 mb-3" />
-          <a id="create-quiz" href="create.html" class="btn btn-outline-primary" role="button">Create Quiz</a>
-          <a id="take-quiz" href="search.html" class="btn btn-outline-primary float-right" role="button">Take a Quiz</a>
-      </div>
-      </form>
-    </div>
-    </div>
+  </div>
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -78,7 +78,7 @@
   <!-- <script src="scripts/main.js" charset="utf-8"></script> -->
   <script src="scripts/index.js" charset="utf-8"></script>
 
-</body>
+  </body>
 
 </html>
 </body>
