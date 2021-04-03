@@ -1,0 +1,42 @@
+form {
+    /* Center the form on the page */
+    margin: 0 auto;
+    width: 500px;
+    /* Form outline */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+.cog {
+    margin-left: 1%;
+    border: 1px solid silver;
+    background-color: rgb(240, 240, 240);
+}
+
+.remove {
+    margin-left: 1%;
+    border: 1px solid silver;
+    background-color: rgb(255, 92, 92);
+}
+
+.dropdown {
+    margin-left: 1%;
+}
+
+.mdl-card {
+    min-height: 0;
+}
+
+.mdl-card {
+    background: linear-gradient(white, #f9f9f9);
+    justify-content: space-between;
+}
+
+header {
+    background-color: cadetblue;
+    /* position: absolute; */
+    top: 22px;
+    /* width: 100%; */
+    right: 0;
+}
