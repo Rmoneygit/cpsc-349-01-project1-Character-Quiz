@@ -9,21 +9,47 @@ $(document).on('click', '#submit', function (event) {
 
     let qnaVals = [];
     let catVals = [];
-    //let qna1 = [{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
 
-
-    var i;
+    var i = 0;
     var j;
-    console.log(cats.length);
+    var k;
     for (j = 0; j < cats.length; j++) {
         catVals.push($(cats[j]).val());
     }
+    var flag = true;
+    var weight = 0;
 
-    for (i = 0; i < qna.length; i++) {
-        qnaVals.push($(qna[i]).val());
-    }
-    for (i = 1; i < qP.length; i++) {
-        qnaVals.push({ q: $(qP[i]).val() });
+    // FSM to "parse" correct format
+    //{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
+    while(i < qP.length) {
+        // if the string passed in is ONLY a number, true. 'q1' is treated as a string.
+        let isnum = /^\d+$/.test($(qP[i]).val());
+
+        // If it's a prompt or a weight.
+        if(!isnum) {
+            // If the curr string has a string after it, it's a 'q', else an 'a'
+            // implied to never go oob because the end of the array should ALWAYS be
+            // a weight.
+            if(isNaN($(qP[i + 1]).val())) {
+                qnaVals.push({ q: $(qP[i]).val() });
+            } else {
+                qnaVals.push({ a: $(qP[i]).val() });
+            }
+            i++;
+        } else {
+            // if the val is non NaN
+            // iterate through that small bit, pushing to the latest a value.
+            k = i;
+            console.log("This should be the a value.");
+            console.log($(qP[i-1]).val());
+            while(!isNaN( $(qP[k]).val() )) {
+                weight = $(qP[k]).val() * 1;
+                console.log("Printing weight at ", k);
+                console.log(weight);
+                k++;
+            }
+            i = k;
+        }
     }
 
     saveQuiz($(qna[0]).val(), qnaVals, catVals);
