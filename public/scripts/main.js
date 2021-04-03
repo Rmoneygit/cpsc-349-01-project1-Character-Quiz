@@ -83,25 +83,33 @@ document.getElementById('add-question').addEventListener("click", function (even
     q.data('question', questionVal);
     $('#question label').text(`Question ${questionVal}`);
     let str = `
-    <div data-question="${questionVal}" class="question">
-    <div class="form-group question>
-    <label for="resultInput">Question ${questionVal}</label>
-    <input class="form-control" type="question" name="question">
-    </div>
-    <label for="resultInput">Answers</label>
-    <div class="form-group">
-    <div class="input-group">
-    <input class="form-control answer" type="1" name="1" data-answer="1">
-    <a class="btn cog" href="">
-    <i class="fas fa-cogs"></i></a>
-    <a class="btn btn-small remove" href="">
-    <i class="fas fa-minus-circle"></i></a>
-    </div>
-    </div>
-    <button class="btn btn-outline-primary add-answer">Add Answer</button>
-    <hr class="mt-2 mb-3" />
+    <div class="question" id="question-prompt" data-question="${questionVal}">
+        <div class="form-group">
+            <label>Question ${questionVal}</label>
+            <input class="form-control" type="question" name="question">
+        </div>
+        <label>Answers</label>
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control answer" type="1" name="1" data-answer="1">
+                <div class="dropdown">
+                    <button class="btn cog " data-toggle="dropdown">
+                        <i class="fas fa-cogs"></i></a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item">My Category</a>
+                        <input type="number" value="0" min="0" step="1" />
+                    </div>
+                </div>
+                <a class="btn btn-small remove" href="">
+                    <i class="fas fa-minus-circle"></i></a>
+            </div>
+        </div>
+        <button class="btn btn-outline-primary add-answer">Add Answer</button>
+        <hr class="mt-2 mb-3" />
     </div>`
     $('#add-question').before(str);
+    updateAllCogs()
     // addAsnwerListener();
 });
 function removeAllChildNodes(parent) {
@@ -133,7 +141,7 @@ function generateCogCat(cog) {
         pointVals.push(0);
     }
     for (i = 0; i < inputEls.length; i++) {
-        pointVals[i] = parseInt($(inputEls[i]).val());
+        pointVals[i] = parseInt($(inputEls[i]).val(), 10);
     }
     console.log(pointVals);
     cats.each(function (i) {
@@ -161,7 +169,7 @@ $(document).on('click', '.add-answer', function (event) {
     <div class="input-group">
         <input class="form-control answer" type="${answerVal}" name="${answerVal}" data-answer="${answerVal}">
         <div class="dropdown">
-            <button class="btn cog" onclick="generateCogCat(event)" data-toggle="dropdown">
+            <button class="btn cog" data-toggle="dropdown">
                 <i class="fas fa-cogs"></i></a>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -173,6 +181,7 @@ $(document).on('click', '.add-answer', function (event) {
             <i class="fas fa-minus-circle"></i></a>
     </div>
 </div>`);
+    updateAllCogs()
 });
 function spinner(parent) {
     parent.find("input[type='number']").inputSpinner();
