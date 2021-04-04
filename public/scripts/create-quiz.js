@@ -32,17 +32,23 @@ const q = Object.create(quiz);
 
 function saveQuiz(title, qna, category) {
     // Add a new message entry to the database.
-    return firebase.firestore().collection('quiz').add({
+    firebase.firestore().collection('quiz').add({
         title: title,
         author: getUserName(),
         qna: qna,
         category: category,
         timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    }).catch(function (error) {
-        console.error('Error writing new message to database', error);
-    });
+    })
+        .then(function () {
+            window.location.replace("index.html");
+        })
+        .catch(function (error) {
+            console.error('Error writing new message to database', error);
+        });
 }
-
+function goIndex() {
+    window.location.replace("index.html");
+}
 // console.log(getUserName())
 setTimeout(() => { console.log(getUserName()) }, 5000);
 
