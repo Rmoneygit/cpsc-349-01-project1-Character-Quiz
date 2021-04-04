@@ -73,7 +73,7 @@ function displayQna(qna) {
     // we chould add loading screem here
     questionElement.html(qna[0].q);
     let choicesHTML = '';
-    for (var i = 1; i < qna.length - 1; i++) {
+    for (var i = 1; i < qna.length; i++) {
         let dataHTML = '';
         for (const [key, value] of Object.entries(qna[i])) {
             if (key !== 'a') {

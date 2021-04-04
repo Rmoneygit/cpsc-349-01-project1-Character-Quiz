@@ -56,14 +56,6 @@ header {
     right: 0;
 }
 
-header {
-    background-color: cadetblue;
-    /* position: absolute; */
-    top: 22px;
-    /* width: 100%; */
-    right: 0;
-}
-
 .mdl-card {
     min-height: 0;
 }
