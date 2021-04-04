@@ -1,4 +1,17 @@
 // good doc sample id=pFeUsFzuD2km0eptYTCK
+const score = {};
+function getResult(score) {
+    let result;
+    let largest = 0;
+    for (const [key, value] of Object.entries(score)) {
+        if (value > largest) {
+            largest = value;
+            result = key;
+        }
+    }
+    return result;
+}
+
 let questionElement = $('#question');
 let answerContainerElement = $('#answers');
 let currentQuestion = 0;
@@ -22,11 +35,20 @@ function loadQuiz() {
                     startQuiz(data);
                     $(document).on('click', '.answer', function (event) {
                         currentQuestion++;
+                        let clickedElement = $(event.target);
+                        let weights = clickedElement.data();
+                        for (const [key, value] of Object.entries(weights)) {
+                            if (isNaN(score[key])) {
+                                score[key] = 0;
+                            }
+                            score[key] += parseInt(value, 10);
+                        }
                         if (currentQuestion >= totalQuestions) {
-                            alert("quiz done");
+                            window.location.replace(`result.html?result=${getResult(score)}`);
                         } else {
                             displayQna(data.qna[currentQuestion])
                         }
+                        console.log(score)
                     });
                     return data;
                 } catch (error) {
@@ -52,8 +74,14 @@ function displayQna(qna) {
     questionElement.html(qna[0].q);
     let choicesHTML = '';
     for (var i = 1; i < qna.length - 1; i++) {
+        let dataHTML = '';
+        for (const [key, value] of Object.entries(qna[i])) {
+            if (key !== 'a') {
+                dataHTML += `data-${key}='${value}' `
+            }
+        }
         choicesHTML +=
-            `<button class="btn btn-outline-info btn-block text-left answer" type="button">
+            `<button class="btn btn-outline-info btn-block text-left answer" type="button" ${dataHTML}>
             ${qna[i].a}
         </button>
         `;
@@ -63,7 +91,7 @@ function displayQna(qna) {
 function getTotalQuestion(quiz) {
     let total = 0;
     for (const [key, value] of Object.entries(quiz)) {
-        total++; quiz
+        total++;
     }
     return total;
 }
