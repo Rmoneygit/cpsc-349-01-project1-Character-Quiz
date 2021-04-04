@@ -65,6 +65,7 @@ document.getElementById('add-category').addEventListener("click", function (even
     event.preventDefault();
     let cats = $("#category-types").find("input");
     $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type="category-${cats.length + 1}" value="My Category ${cats.length + 1}"></div>`);
+    updateAllCogs();
 });
 document.getElementById('delete-category').addEventListener("click", function (event) {
     event.preventDefault();
@@ -72,6 +73,7 @@ document.getElementById('delete-category').addEventListener("click", function (e
         return;
     }
     $('#category .panel .panel-body .form-group').last().remove();
+    updateAllCogs();
 });
 document.getElementById('add-question').addEventListener("click", function (event) {
     event.preventDefault();
@@ -81,25 +83,33 @@ document.getElementById('add-question').addEventListener("click", function (even
     q.data('question', questionVal);
     $('#question label').text(`Question ${questionVal}`);
     let str = `
-    <div data-question="${questionVal}" class="question">
-    <div class="form-group question>
-    <label for="resultInput">Question ${questionVal}</label>
-    <input class="form-control" type="question" name="question">
-    </div>
-    <label for="resultInput">Answers</label>
-    <div class="form-group">
-    <div class="input-group">
-    <input class="form-control answer" type="1" name="1" data-answer="1">
-    <a class="btn btn-small cog" href="">
-    <i class="fas fa-cogs"></i></a>
-    <a class="btn btn-small remove" href="">
-    <i class="fas fa-minus-circle"></i></a>
-    </div>
-    </div>
-    <button class="btn btn-outline-primary add-answer">Add Answer</button>
-    <hr class="mt-2 mb-3" />
+    <div class="question" id="question-prompt" data-question="${questionVal}">
+        <div class="form-group">
+            <label>Question ${questionVal}</label>
+            <input class="form-control" type="question" name="question">
+        </div>
+        <label>Answers</label>
+        <div class="form-group">
+            <div class="input-group">
+                <input class="form-control answer" type="1" name="1" data-answer="1">
+                <div class="dropdown">
+                    <button class="btn cog " data-toggle="dropdown">
+                        <i class="fas fa-cogs"></i></a>
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item">My Category</a>
+                        <input type="number" value="0" min="0" step="1" />
+                    </div>
+                </div>
+                <a class="btn btn-small remove" href="">
+                    <i class="fas fa-minus-circle"></i></a>
+            </div>
+        </div>
+        <button class="btn btn-outline-primary add-answer">Add Answer</button>
+        <hr class="mt-2 mb-3" />
     </div>`
     $('#add-question').before(str);
+    updateAllCogs()
     // addAsnwerListener();
 });
 function removeAllChildNodes(parent) {
@@ -107,12 +117,18 @@ function removeAllChildNodes(parent) {
         parent.removeChild(parent.firstChild);
     }
 }
-function generateCogCat(event) {
-    event.preventDefault();
+function updateAllCogs() {
+    let cogs = $(".btn.cog");
+    cogs.each(function() {
+        generateCogCat($(this));
+    });
+}
+updateAllCogs();
+function generateCogCat(cog) {
     console.log('cog')
     let htmlStr = ``;
     let cats = $("#category-types").find("input");
-    let parent = $(event.target).parents(".input-group");
+    let parent = $(cog).parents(".input-group");
     let form_ctrl = parent.find(".form-control.answer");
     let drop_menu = parent.find(".dropdown-menu");
     form_ctrl.attr('type', cats.length);
@@ -125,14 +141,15 @@ function generateCogCat(event) {
         pointVals.push(0);
     }
     for (i = 0; i < inputEls.length; i++) {
-        pointVals.push($(inputEls[i]).val());
+        pointVals[i] = parseInt($(inputEls[i]).val(), 10);
     }
+    console.log(pointVals);
     cats.each(function (i) {
-        console.log(i)
         htmlStr += `<a class="dropdown-item">${$(this).val()}</a><input type="number" value="${pointVals[i]}" min="0" step="1" />`
     });
     drop_menu.html(htmlStr);
-    spinner();
+    spinner(drop_menu);
+    drop_menu.find("input[type='number']").remove();
 }
 $(document).on('click', '.remove', function (event) {
     event.preventDefault();
@@ -152,7 +169,7 @@ $(document).on('click', '.add-answer', function (event) {
     <div class="input-group">
         <input class="form-control answer" type="${answerVal}" name="${answerVal}" data-answer="${answerVal}">
         <div class="dropdown">
-            <button class="btn cog" onclick="generateCogCat(event)" data-toggle="dropdown">
+            <button class="btn cog" data-toggle="dropdown">
                 <i class="fas fa-cogs"></i></a>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -164,11 +181,11 @@ $(document).on('click', '.add-answer', function (event) {
             <i class="fas fa-minus-circle"></i></a>
     </div>
 </div>`);
+    updateAllCogs()
 });
-function spinner() {
-    $("input[type='number']").inputSpinner();
+function spinner(parent) {
+    parent.find("input[type='number']").inputSpinner();
 }
-spinner();
 $('.dropdown-menu').click(function (e) {
     e.stopPropagation();
 });
