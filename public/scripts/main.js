@@ -29,7 +29,7 @@ $(document).on('click', '#submit', function (event) {
         let isnum = /^\d+$/.test($(qP[i]).val());
 
         // If it's a prompt or a weight.
-        if(!isnum) {
+        if (!isnum) {
             // If the curr string has a string after it, it's a 'q', else an 'a'
             // implied to never go oob because the end of the array should ALWAYS be
             // a weight.
@@ -70,7 +70,9 @@ $(document).on('click', '#submit', function (event) {
     }
     saveQuiz(q.title, q.qna, q.catList);
 });
-
+function onClickStopPropagation(event) {
+    event.preventDefault();
+};
 document.getElementById('add-category').addEventListener("click", function (event) {
     event.preventDefault();
     let cats = $("#category-types").find("input");
@@ -103,7 +105,7 @@ document.getElementById('add-question').addEventListener("click", function (even
             <div class="input-group">
                 <input class="form-control answer" type="1" name="1" data-answer="1">
                 <div class="dropdown">
-                    <button class="btn cog " data-toggle="dropdown">
+                    <button class="btn cog" data-toggle="dropdown">
                         <i class="fas fa-cogs"></i></a>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -129,13 +131,12 @@ function removeAllChildNodes(parent) {
 }
 function updateAllCogs() {
     let cogs = $(".btn.cog");
-    cogs.each(function() {
+    cogs.each(function () {
         generateCogCat($(this));
     });
 }
 updateAllCogs();
 function generateCogCat(cog) {
-    console.log('cog')
     let htmlStr = ``;
     let cats = $("#category-types").find("input");
     let parent = $(cog).parents(".input-group");
@@ -196,12 +197,9 @@ $(document).on('click', '.add-answer', function (event) {
 function spinner(parent) {
     parent.find("input[type='number']").inputSpinner();
 }
-$('.dropdown-menu').click(function (e) {
-    e.stopPropagation();
-});
 $('.dropdown-item').click(function (e) {
     e.preventDefault();
 });
-$(document).on('click', '.cog', function (event) {
-    event.preventDefault();
+$(document).on('click', '.dropdown-menu', function (event) {
+    event.stopPropagation();
 });
