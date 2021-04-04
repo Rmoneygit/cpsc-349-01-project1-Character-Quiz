@@ -1,14 +1,17 @@
-header {
-    background-color: cadetblue;
-    /* position: absolute; */
-    top: 22px;
-    /* width: 100%; */
-    right: 0;
-}
 h1 {
     display: flex;
     justify-content: space-between;
 }
+
+header {
+    background-color: cadetblue;
+    /* position: absolute; */
+    /* width: 100%; */
+    right: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
 .result-text {
     display: flex;
     align-items: center;
@@ -19,5 +22,6 @@ h1 {
 
 .return-to-menu {
     display: flex;
+    align-items: center;
     justify-content: center;
 }

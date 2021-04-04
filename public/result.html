@@ -26,7 +26,10 @@
     <link rel="stylesheet" href="stylesheets/loading.css">
     <link rel="stylesheet" href="stylesheets/user.css">
 </head>
-<body>
+<div id='preload' class="spinner-grow mw-100 p-3 position-fixed center translate-middle" role="status"
+    style="visibility: visible;"></div>
+
+<body id='body' style="visibility: hidden;">
     <header>
         <h1 style="color:white;" class="text-center">Quizzzy
             <div id="user-container" class="float-right">
@@ -44,9 +47,9 @@
     </header>
     <div id = "result"></div>
     <hr>
-
-    <a id="return-to-menu" href="index.html" class="btn btn-outline-primary" role="button">Back to Menu</a>
-    
+    <div class="return-to-menu">
+        <a href="index.html" class="btn btn-outline-primary" role="button">Back to Menu</a>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
