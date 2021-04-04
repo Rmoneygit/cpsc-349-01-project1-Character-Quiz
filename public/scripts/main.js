@@ -70,6 +70,7 @@ $(document).on('click', '#submit', function (event) {
     }
     console.log(q.title, q.qna, q.catList);
     saveQuiz(q.title, q.qna, q.catList);
+    window.location.replace("index.html");
 });
 function onClickStopPropagation(event) {
     event.preventDefault();

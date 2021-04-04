@@ -22,7 +22,7 @@ const quiz = {
 
 // let qna = [{ 1: qna1 }, { 2: qna2 }]
 // let catList = ['hobo', 'rich', 'omega rich']
-// const q = Object.create(quiz);
+const q = Object.create(quiz);
 
 // q.title = "Example one";
 // q.catList = catList;
