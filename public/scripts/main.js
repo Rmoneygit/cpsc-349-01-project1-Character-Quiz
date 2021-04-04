@@ -80,7 +80,7 @@ function onClickStopPropagation(event) {
 document.getElementById('add-category').addEventListener("click", function (event) {
     event.preventDefault();
     let cats = $("#category-types").find("input");
-    $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control" type="category-${cats.length + 1}" value="My Category ${cats.length + 1}"></div>`);
+    $('#category .panel .panel-body .form-group').last().after(`<div class="form-group"><input class="form-control cat-data" type="category-${cats.length + 1}" value="My Category ${cats.length + 1}"></div>`);
     updateAllCogs();
 });
 document.getElementById('delete-category').addEventListener("click", function (event) {
@@ -158,7 +158,6 @@ function generateCogCat(cog) {
     for (i = 0; i < inputEls.length; i++) {
         pointVals[i] = parseInt($(inputEls[i]).val(), 10);
     }
-    console.log(pointVals);
     cats.each(function (i) {
         htmlStr += `<a class="dropdown-item">${$(this).val()}</a><input type="number" value="${pointVals[i]}" min="0" step="1" />`
     });
@@ -206,4 +205,7 @@ $('.dropdown-item').click(function (e) {
 });
 $(document).on('click', '.dropdown-menu', function (event) {
     event.stopPropagation();
+});
+$(document).on('input', '.form-control.cat-data', function() {
+    updateAllCogs();
 });
