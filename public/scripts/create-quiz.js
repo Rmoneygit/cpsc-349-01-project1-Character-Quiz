@@ -46,9 +46,6 @@ function saveQuiz(title, qna, category) {
             console.error('Error writing new message to database', error);
         });
 }
-function goIndex() {
-    window.location.replace("index.html");
-}
 // console.log(getUserName())
 setTimeout(() => { console.log(getUserName()) }, 5000);
 
