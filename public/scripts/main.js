@@ -24,20 +24,20 @@ $(document).on('click', '#submit', function (event) {
     console.log(qP.length);
     var ina;
     let tempQP = [];
-    for(ina = 0; ina < qP.length; ina++) {
+    for (ina = 0; ina < qP.length; ina++) {
         tempQP.push($(qP[ina]).val());
     }
     console.log(tempQP);
-    while(i < qP.length) {
+    while (i < qP.length) {
         // if the string passed in is ONLY a number, true. 'q1' is treated as a string.
         let isnum = /^\d+$/.test($(qP[i]).val());
 
         // If it's a prompt or a weight.
-        if(!isnum) {
+        if (!isnum) {
             // If the curr string has a string after it, it's a 'q', else an 'a'
             // implied to never go oob because the end of the array should ALWAYS be
             // a weight.
-            if(isNaN($(qP[i + 1]).val())) {
+            if (isNaN($(qP[i + 1]).val())) {
                 qnaVals.push({ q: $(qP[i]).val() });
             } else {
                 qnaVals.push({ a: $(qP[i]).val() });
@@ -48,8 +48,8 @@ $(document).on('click', '#submit', function (event) {
             // iterate through that small bit, pushing to the latest a value.
             k = i;
             console.log("This should be the a value.");
-            console.log($(qP[i-1]).val());
-            while(!isNaN( $(qP[k]).val() )) {
+            console.log($(qP[i - 1]).val());
+            while (!isNaN($(qP[k]).val())) {
                 weight = $(qP[k]).val() * 1;
                 console.log("Printing weight at ", k);
                 console.log(weight);
