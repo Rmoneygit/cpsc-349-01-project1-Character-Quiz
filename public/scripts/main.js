@@ -24,7 +24,7 @@ $(document).on('click', '#submit', function (event) {
     // FSM to "parse" correct format
     //{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
     var flag = true;
-    while(flag) {
+    while (flag) {
         // if the string passed in is ONLY a number, true. 'q1' is treated as a string.
         let isnum = /^\d+$/.test($(qP[i]).val());
 
@@ -33,18 +33,18 @@ $(document).on('click', '#submit', function (event) {
             // If the curr string has a string after it, it's a 'q', else an 'a'
             // implied to never go oob because the end of the array should ALWAYS be
             // a weight.
-            if(isNaN($(qP[i + 1]).val())) {
+            if (isNaN($(qP[i + 1]).val())) {
                 // if the previous index was a number, clear
                 // the current array and append to the big array
-                if(i > 0) {
+                if (i > 0) {
                     let isprevnum = /^\d+$/.test($(qP[i - 1]).val());
-                    if(isprevnum) {
+                    if (isprevnum) {
                         q.appendQna(qnaVals);
                         qnaVals = [];
                     }
                     // Breaks while loop once after the list qP has iterated
                     // thru, as we need to add the last question to the obj 'q'
-                    if(i >= qP.length) {
+                    if (i >= qP.length) {
                         flag = false;
                         break;
                     }
@@ -58,16 +58,17 @@ $(document).on('click', '#submit', function (event) {
             // if the val is non NaN
             // iterate through that small bit, pushing to the latest a value.
             k = i;
-            while(!isNaN( $(qP[k]).val() )) {
+            while (!isNaN($(qP[k]).val())) {
                 weight = $(qP[k]).val() * 1;
 
                 // data["PropertyD"] = 4;
-                qnaVals[qnaVals.length - 1][catVals[k-i]] = weight;
+                qnaVals[qnaVals.length - 1][catVals[k - i]] = weight;
                 k++;
             }
             i = k;
         }
     }
+    console.log(q.title, q.qna, q.catList);
     saveQuiz(q.title, q.qna, q.catList);
 });
 function onClickStopPropagation(event) {
