@@ -11,8 +11,8 @@ section {
 }
 
 h1 {
-    text-align: center;
-    align-content: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 form {

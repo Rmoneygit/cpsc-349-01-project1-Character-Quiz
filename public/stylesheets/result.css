@@ -5,7 +5,10 @@ header {
     /* width: 100%; */
     right: 0;
 }
-
+h1 {
+    display: flex;
+    justify-content: space-between;
+}
 .result-text {
     display: flex;
     align-items: center;
