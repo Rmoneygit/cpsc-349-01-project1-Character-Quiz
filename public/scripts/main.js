@@ -9,7 +9,8 @@ $(document).on('click', '#submit', function (event) {
 
     let qnaVals = [];
     let catVals = [];
-
+    const q = Object.create(quiz);
+    q.title = $(qna[0]).val();
     var i = 0;
     var j;
     var k;
@@ -17,18 +18,13 @@ $(document).on('click', '#submit', function (event) {
         catVals.push($(cats[j]).val());
     }
 
+    q.catList = catVals;
     var weight = 0;
 
     // FSM to "parse" correct format
     //{ q: 'you happy?' }, { a: 'ok', 'hobo': 2 }, { a: 'im ok', 'rich': 3 }, { a: 'gud', 'rich': 3, 'hobo': 2 }, { a: 'gud', 'rich': 3, 'hobo': 1 }];
-    console.log(qP.length);
-    var ina;
-    let tempQP = [];
-    for(ina = 0; ina < qP.length; ina++) {
-        tempQP.push($(qP[ina]).val());
-    }
-    console.log(tempQP);
-    while(i < qP.length) {
+    var flag = true;
+    while(flag) {
         // if the string passed in is ONLY a number, true. 'q1' is treated as a string.
         let isnum = /^\d+$/.test($(qP[i]).val());
 
@@ -38,6 +34,21 @@ $(document).on('click', '#submit', function (event) {
             // implied to never go oob because the end of the array should ALWAYS be
             // a weight.
             if(isNaN($(qP[i + 1]).val())) {
+                // if the previous index was a number, clear
+                // the current array and append to the big array
+                if(i > 0) {
+                    let isprevnum = /^\d+$/.test($(qP[i - 1]).val());
+                    if(isprevnum) {
+                        q.appendQna(qnaVals);
+                        qnaVals = [];
+                    }
+                    // Breaks while loop once after the list qP has iterated
+                    // thru, as we need to add the last question to the obj 'q'
+                    if(i >= qP.length) {
+                        flag = false;
+                        break;
+                    }
+                }
                 qnaVals.push({ q: $(qP[i]).val() });
             } else {
                 qnaVals.push({ a: $(qP[i]).val() });
@@ -47,18 +58,17 @@ $(document).on('click', '#submit', function (event) {
             // if the val is non NaN
             // iterate through that small bit, pushing to the latest a value.
             k = i;
-            console.log("This should be the a value.");
-            console.log($(qP[i-1]).val());
             while(!isNaN( $(qP[k]).val() )) {
                 weight = $(qP[k]).val() * 1;
-                console.log("Printing weight at ", k);
-                console.log(weight);
+
+                // data["PropertyD"] = 4;
+                qnaVals[qnaVals.length - 1][catVals[k-i]] = weight;
                 k++;
             }
             i = k;
         }
     }
-    saveQuiz($(qna[0]).val(), qnaVals, catVals);
+    saveQuiz(q.title, q.qna, q.catList);
 });
 
 document.getElementById('add-category').addEventListener("click", function (event) {
