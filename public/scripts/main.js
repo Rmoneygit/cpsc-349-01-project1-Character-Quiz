@@ -16,6 +16,7 @@ $(document).on('click', '#submit', function (event) {
     var k;
     for (j = 0; j < cats.length; j++) {
         catVals.push($(cats[j]).val());
+        catVals[j] = catVals[j].replace(/\s+/g, '-');
     }
 
     q.catList = catVals;
